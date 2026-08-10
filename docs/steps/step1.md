@@ -5,45 +5,113 @@
 このステップでは、在庫トランザクションを格納するための Kafka トピック `inventory.transactions` を作成します。
 
 ---
+## Bobの設定
+### 作業フォルダの作成
+Bobで作業するためのプロジェクトフォルダを作成します。<br>
+好きな場所に"confluent-agents"という名称のフォルダを作成してください。ハンズオンの作業フォルダとして使用します。<br>
+### プロジェクトフォルダを開く
+1. デスクトップまたはアプリケーションフォルダから、IBM Bobを起動します。
+2. IBM Bob左上の「ファイル」メニューをクリック
+3. 「フォルダーを開く」を選択<br>
+![alt text](<step1_images/スクリーンショット 2026-08-10 23.02.21.png>)
+4. 先ほどコピーした「confluent-agents」フォルダに移動<br>
+5. 「開く」をクリック（OSによって画面イメージや項目は異なります）<br>
+![alt text](<step1_images/スクリーンショット 2026-08-10 23.03.13.png>)
+6. 以下のように作業フォルダとBobのチャット画面が立ち上がっていたら成功です。制限モードになっている場合はその作業フォルダを「信頼する」設定を実施してください。 
+![alt text](<step1_images/スクリーンショット 2026-08-10 23.06.11.png>)
 
-## Bob への指示例
+## .env.example ファイルの作成
+プロジェクトフォルダにConfluentの認証情報と設定情報を記述する`.env.example`というファイルを作成してください。<br>
+`.env.example`には以下の内容をコピペしてください。
+
+
+```title=".env.example"
+# ============================================================
+# Confluent Cloud 認証情報 — .env.example
+# このファイルをコピーして .env にリネームし、実際の値を入力してください。
+# ============================================================
+# --- Confluent Cloud REST API（クラスター管理用）---
+
+# REST エンドポイント（例: https://pkc-xxxxx.ap-northeast-1.aws.confluent.cloud:443）
+CONFLUENT_REST_ENDPOINT=https://pkc-xxxxx.ap-northeast-1.aws.confluent.cloud:443
+
+# クラスター ID（例: lkc-xxxxxx）
+CONFLUENT_CLUSTER_ID=lkc-xxxxxx
+
+# --- Confluent Cloud クラスター設定 ---
+# Bootstrap サーバー（例: pkc-xxxxx.ap-northeast-1.aws.confluent.cloud:9092）
+CONFLUENT_BOOTSTRAP_SERVERS=pkc-xxxxx.ap-northeast-1.aws.confluent.cloud:9092
+
+# Kafka API キー / シークレット（クラスタースコープ）
+CONFLUENT_API_KEY=FTxxxxxxx
+CONFLUENT_API_SECRET=cfltxxxxxxxxxxxxx
+
+# --- トピック設定 ---
+# トピック名（デフォルト: inventory.transactions）
+TOPIC_NAME=inventory.transactions
+
+# パーティション数（デフォルト: 6）
+TOPIC_PARTITIONS=1
+
+# メッセージ保持期間（ミリ秒）
+# 例: 604800000 = 7日間 / 86400000 = 1日間 / -1 = 無期限
+TOPIC_RETENTION_MS=604800000
+
+# レプリケーション係数（Confluent Cloud は通常 3）
+TOPIC_REPLICATION_FACTOR=3
+
+```
+## Bob にトピック作成のためのスクリプト作成を指示する
 
 Bob に以下のように指示してください：
 
 ```
-Hi Bob, create a python code to create a topic on Confluent Cloud 
-called "inventory.transactions", make the number of partitions and 
-retention configurable, and create an .env file and I will fill it 
-with my Confluent Cloud details and credentials. 
-Use "~/Documents/bob/confluent-agents" as my working directory for the project.
+Confluent Cloud上に「inventory.transactions」という名前の
+トピックを作成するPythonコードを作成してください。
+Confluentの詳細情報と認証情報は.env.exampleにある項目を使用します。
 ```
 
-Bob が Python スクリプトと `.env` ファイルを生成します。
+Bob が Python スクリプトを生成します。
 
 ## .env ファイルへの認証情報入力
 
-Bob が生成した `.env` ファイルを開いて、Confluent Cloud の認証情報を入力してください。
+`.env` ファイル作成して、先ほど作成した`.env.example`の内容をコピペしてください。
 
-入力後、Bob に以下のように指示してトピックを作成します：
+### 必要な環境変数と取得場所
+**CONFLUENT_BOOTSTRAP_SERVERS / CONFLUENT_REST_ENDPOINT / CONFLUENT_CLUSTER_ID**
 
-```
-Done, I edited the .env file with my credentials, you can now create 
-the topic on Confluent Kafka, and please validate that it's created 
-successfully.
-```
+https://confluent.cloud にログイン
+左メニューの Environments → 対象の Environment を選択
+![alt text](<step1_images/スクリーンショット 2026-08-10 23.17.24.png>)
 
-Bob が自動的にトピックを作成し、作成確認まで行います。
+対象の Cluster をクリック
+![alt text](<step1_images/スクリーンショット 2026-08-10 23.34.52.png>)
 
+変数を.envファイルにコピペします。
+![alt text](<step1_images/スクリーンショット 2026-08-10 23.23.36-1.png>)
+
+**CONFLUENT_API_KEY=YOUR_KAFKA_API_KEY / CONFLUENT_API_SECRET=YOUR_KAFKA_API_SECRET**<br>
+
+"APY Keys"タブをクリックし、"Create Key"をクリック
+![alt text](<step1_images/スクリーンショット 2026-08-10 23.28.32-2.png>)
+
+"My account"を選択
+![alt text](<step1_images/スクリーンショット 2026-08-10 23.28.38.png>)
+
+変数を.envファイルにコピペします。
+![alt text](<step1_images/スクリーンショット 2026-08-10 23.29.05.png>)
 ---
 
+## Bob にトピック作成を実行してもらう
+環境変数を入力後、Bob に以下のように指示してトピックを作成します：
+
+```
+.env ファイルに私の認証情報を追加しましたので、Confluent Kafka 上にトピックを作成してください。
+```
 ## 確認
 
-トピックの作成が完了したら、以下を確認してください：
-
-- [ ] `inventory.transactions` トピックが Topics 一覧に表示されている
-- [ ] パーティション数が 1 になっている
-- [ ] 保持期間が Infinite（無制限）に設定されている
-
+Confluent Cloud上で以下のようにトピックが作成されていることが確認できます。
+![alt text](<step1_images/スクリーンショット 2026-08-11 0.07.43.png>)
 ---
 
 ## 次のステップ

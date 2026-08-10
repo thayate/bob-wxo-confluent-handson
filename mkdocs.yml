@@ -48,9 +48,9 @@ markdown_extensions:
 
 nav:
   - ホーム: index.md
-  - 前提条件: prerequisites.md
-  - アーキテクチャ概要: overview.md
-  - ハンズオン手順:
+  - ハンズオンガイド:
+    - 前提条件: prerequisites.md
+    - アーキテクチャ概要: overview.md
     - ステップ1 - Kafkaトピックの作成: steps/step1.md
     - ステップ2 - 派生トピックの作成（ksqlDB）: steps/step2.md
     - ステップ3 - サンプルイベントの投入: steps/step3.md
