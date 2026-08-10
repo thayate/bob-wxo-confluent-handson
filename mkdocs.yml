@@ -1,0 +1,60 @@
+site_name: イベント駆動型エージェントAIシステム ハンズオンガイド
+site_description: Confluent Cloud（Apache Kafka）と watsonx Orchestrate を使ったイベント駆動型エージェントAIシステム構築チュートリアル
+site_author: IBM Developer
+docs_dir: docs
+repo_url: https://github.com/IBM/oic-i-agentic-ai-tutorials
+repo_name: IBM/oic-i-agentic-ai-tutorials
+
+theme:
+  name: material
+  language: ja
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: ダークモードに切替
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: ライトモードに切替
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - ホーム: index.md
+  - 前提条件: prerequisites.md
+  - アーキテクチャ概要: overview.md
+  - ハンズオン手順:
+    - ステップ1 - Kafkaトピックの作成: steps/step1.md
+    - ステップ2 - 派生トピックの作成（ksqlDB）: steps/step2.md
+    - ステップ3 - サンプルイベントの投入: steps/step3.md
+    - ステップ4 - MCPツール＆AIエージェントの作成: steps/step4.md
+    - ステップ5 - Agentic RAGエージェントの作成: steps/step5.md
+    - ステップ6 - スーパーバイザーエージェントの作成: steps/step6.md
+  - トラブルシューティング: appendix/troubleshooting.md
