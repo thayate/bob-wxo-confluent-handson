@@ -766,7 +766,7 @@
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        テスト1：グラウンディングテスト
+        テスト1
       
     </span>
   </a>
@@ -777,7 +777,7 @@
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        テスト2：類似性テスト
+        テスト2
       
     </span>
   </a>
@@ -791,17 +791,6 @@
       
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        確認
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         次のステップ
@@ -1030,7 +1019,7 @@
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        テスト1：グラウンディングテスト
+        テスト1
       
     </span>
   </a>
@@ -1041,7 +1030,7 @@
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        テスト2：類似性テスト
+        テスト2
       
     </span>
   </a>
@@ -1055,17 +1044,6 @@
       
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        確認
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         次のステップ
@@ -1119,9 +1097,11 @@
 <h3 id="_3">手順<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p><strong>1. YAML ファイルを確認する</strong></p>
 <p>前のステップでダウンロードした <code>Substitute_Finder_Agent.yaml</code>ファイルを使用します。</p>
-<p><strong>2. エージェントをインポートする</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>resources/Substitute_Finder_Agent.yamlの名称に<span class="s2">&quot;ご自身のイニシャル_&quot;</span>を付け加えて、watsonx<span class="w"> </span>Orchestrateにインポートしてください
-</code></pre></div>
+<p><strong>2. エージェントをインポートする</strong>
+Bobに以下の指示をしてください。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>resources/Substitute_Finder_Agent.yamlの名称に<span class="s2">&quot;ご自身のイニシャル_&quot;</span>を付け加えて、
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>watsonx<span class="w"> </span>Orchestrateにインポートしてください
+</code></pre></div></p>
 <p><strong>3. エージェントをデプロイする</strong></p>
 <p>インポートが完了したら、エージェントをアクティブ状態にするためにデプロイします：</p>
 <ol>
@@ -1148,13 +1128,14 @@
 </ul>
 <p>これらの製品は、カテゴリ・プロセッサークラス・メモリ・ストレージ・使用目的ティアなどの属性を意図的に共有しています。この重複により、エージェントはセマンティック類似度を通じてそれらを適切な代替品として特定できます。</p>
 <h3 id="_6">アップロード手順<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p><strong>1. watsonx Orchestrate UI を開く</strong></p>
-<p><strong>2. ナレッジソース管理に移動する</strong></p>
-<p><strong>enterprise documents</strong> または <strong>knowledge sources</strong> の管理セクションに移動します。</p>
-<p><strong>3. 新しいナレッジを追加する</strong></p>
-<p><strong>Add New Knowledge</strong> をクリックします。</p>
+<p><strong>1. 左上のメニュー &gt; ビルド から<code>Substitute_Finder_Agent</code>の管理画面に移動する</strong></p>
+<p><strong>2. 知識ソースからソースを追加するをクリック</strong><br>
+<img alt="alt text" src="../step5_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%2014.06.00.png" /></p>
+<p><strong>3. 新しい知識をクリック</strong></p>
 <p><strong>4. ファイルをアップロードする</strong></p>
-<p><strong>Upload Files</strong> をクリックして <code>product-catalog.docx</code> を選択します。</p>
+<p><strong>ファイルのアップロード</strong> をクリックして <strong>次へ</strong> を選択します。<br>
+<img alt="alt text" src="../step5_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%2014.10.48.png" /></p>
+<p><code>product-catalog.docx</code>をアップロードします。</p>
 <p><strong>5. Next をクリックする</strong></p>
 <p><strong>6. ナレッジソースを設定する</strong></p>
 <table>
@@ -1179,29 +1160,25 @@
 <p class="admonition-title">名前の重要性</p>
 <p>名前は必ず <code>enterprise_documents</code> に設定してください。エージェントの YAML 定義がこの名前でナレッジソースを参照しています。</p>
 </div>
-<p><strong>7. Save をクリックする</strong></p>
+<p><strong>7. 保存 をクリックする</strong></p>
 <p>インデックス処理が完了するまで待ちます（数分かかる場合があります）。ドキュメントがセマンティック検索に利用可能になったことを確認してください。</p>
 <hr />
 <h2 id="_7">エージェントを単独でテストする<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>次のステップでスーパーバイザーエージェントと統合する前に、このエージェントを単独でテストします。</p>
-<h3 id="1">テスト1：グラウンディングテスト<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>エンタープライズ製品カタログから LAPTOP-DELL-XPS-15 のエントリを取得し、主要な属性を一覧にしてください。</p>
+<h3 id="1">テスト1<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>製品カタログから LAPTOP-DELL-XPS-15 のエントリを取得し、主要な属性を一覧にしてください。
+</code></pre></div>
 <p><strong>期待される動作：</strong><br />
-エージェントがカタログエントリを取得し、ドキュメントに定義された属性を一覧表示します。追加の確認質問なしに回答します。</p>
-<h3 id="2">テスト2：類似性テスト<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>LAPTOP-DELL-XPS-15 は在庫がありません。製品カタログを使って類似のラップトップを提案してください。</p>
-<p><strong>期待される動作：</strong><br />
-エージェントが <code>HP-SPECTRE-X360</code> を推薦し、カタログから共通属性を使って推薦理由を説明します。</p>
+エージェントがカタログエントリを取得し、ドキュメントに定義された属性を一覧表示します。<br>
+<img alt="alt text" src="../step5_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%2014.17.09.png" /></p>
+<h3 id="2">テスト2<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>LAPTOP-DELL-XPS-15 は在庫がありません。製品カタログを使って類似のラップトップを提案してください。
+</code></pre></div>
+<strong>期待される動作：</strong><br />
+エージェントが <code>HP-SPECTRE-X360</code> を推薦し、カタログから共通属性を使って推薦理由を説明します。<br>
+<img alt="alt text" src="../step5_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%2014.18.04.png" /></p>
 <hr />
-<h2 id="_8">確認<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<ul>
-<li>[ ] <code>Substitute_Finder_Agent</code> が watsonx Orchestrate にインポートされ、デプロイされている</li>
-<li>[ ] <code>product-catalog.docx</code> が <code>enterprise_documents</code> という名前でアップロードされている</li>
-<li>[ ] テスト1：エージェントが製品の属性を正しく返す</li>
-<li>[ ] テスト2：エージェントが適切な代替品を推薦する</li>
-</ul>
-<hr />
-<h2 id="_9">次のステップ<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_8">次のステップ<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>Substitute Finder Agent の作成が完了したら、<a href="../step6/">ステップ6</a> に進んでスーパーバイザーエージェントを作成します。</p>
 
 
