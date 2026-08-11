@@ -19,39 +19,35 @@ MCP ツールは ksqlDB クラスターと通信するため、`.env` ファイ�
 
 ```bash
 # .env ファイルに追加する項目
-KSQL_ENDPOINT=https://pksqlc-xxxxx.us-east-1.aws.confluent.cloud
-KSQL_API_KEY=your_ksqldb_api_key
-KSQL_API_SECRET=your_ksqldb_api_secret
+KSQLDB_ENDPOINT=https://pksqlc-xxxxx.us-east-1.aws.confluent.cloud
+KSQLDB_API_KEY=your_ksqldb_api_key
 ```
 
-ksqlDB クラスターの詳細は、Confluent UI の **ksqlDB** > クラスター選択 > **Cluster settings** から確認できます。
-
+ksqlDB クラスターの詳細は、Confluent UI の **ksqlDB** > クラスター選択 > **Settings** から確認できます。<br>
+![alt text](<step4_images/スクリーンショット 2026-08-11 9.03.44.png>)
 ---
 
 ### 2. MCP ツールを watsonx Orchestrate にインポートする
 
-以下のコマンドを実行して MCP ツールをインポートします。
+watsonx Orchestrateで使うMCPツール群やエージェント定義ファイルをダウンロードします。
 
-`/path/to/oic-i-agentic-ai-tutorials/confluent-agents` の部分は、**自分のマシンでリポジトリをクローンした絶対パス**に置き換えてください。
+ダウンロードしたファイルは'resources'というプロジェクトフォルダに'resources'というフォルダを作成して格納してください。
 
+以下のコマンドを実行して MCP ツールをインポートします。<br>
+ユニークな名称にするため、ご自身のイニシャルや名前を追加する指示をしてください。
+
+Bobに以下の指示をしてください。
 ```bash
+watsonx OrchestrateのADKで以下のコマンドを実行してください。
+インポートするツールに"ご自身のイニシャル_"を追加してユニークな名称にしてください。
 orchestrate toolkits add \
   --kind mcp \
   --name "sku-availability-checker" \
   --description "Real-time inventory availability checker using Confluent Kafka and ksqlDB" \
   --language python \
-  --package-root "/path/to/oic-i-agentic-ai-tutorials/confluent-agents" \
+  --package-root "resources" \
   --command "python3 get_sku_availability.py" \
   --tools "*"
-```
-
-!!! warning "パスについて"
-    `--package-root` には必ず**絶対パス**を指定してください。相対パスは使用できません。
-
-インポートに成功すると、以下のような出力が表示されます：
-
-```
-Toolkit 'sku-availability-checker' added successfully.
 ```
 
 ---
@@ -61,8 +57,7 @@ Toolkit 'sku-availability-checker' added successfully.
 リポジトリに含まれている YAML 定義ファイルを使ってエージェントをインポートします。
 
 ```bash
-cd oic-i-agentic-ai-tutorials/confluent-agents
-orchestrate agents import -f SKU_Availability_Agent.yaml
+resources/sku-availability-agent.yamlの名称に"ご自身のイニシャル_"を付け加えて、watsonx Orchestrateにインポートしてください
 ```
 
 ---
@@ -70,10 +65,15 @@ orchestrate agents import -f SKU_Availability_Agent.yaml
 ### 4. エージェントを確認する
 
 1. watsonx Orchestrate UI を開く
-2. **Manage agents** に移動する
-3. **SKU_Availability_Agent** をクリックする
-4. MCP ツール（`sku-availability-checker`）が紐付けられていることを確認する
-5. エージェントの動作設定（プロンプト、ツール設定など）を確認する
+2. **ビルド** に移動する<br>
+![alt text](<step4_images/スクリーンショット 2026-08-11 13.22.05.png>)
+
+3. **[ご自身のイニシャル]_SKU_Availability_Agent** をクリックする
+4. MCP ツール（`sku-availability-checker`）が紐付けられていることを確認する<br>
+![alt text](<step4_images/スクリーンショット 2026-08-11 13.57.53.png>)
+
+5. エージェントの動作設定（プロンプト、ツール設定など）を確認する<br>
+![alt text](<step4_images/スクリーンショット 2026-08-11 13.58.19.png>)
 
 ---
 
@@ -82,7 +82,7 @@ orchestrate agents import -f SKU_Availability_Agent.yaml
 エージェントのチャットインターフェースで以下を入力してテストします：
 
 ```
-What are the available SKUs in Mall of Egypt?
+Mall of Egyptで入手可能なSKUは何ですか?
 ```
 
 **期待される動作：**
@@ -92,15 +92,7 @@ What are the available SKUs in Mall of Egypt?
 3. MallOfEgypt の各 SKU の在庫数量を一覧で返す
 
 **期待される回答例：**
-```
-Here are the available SKUs in Mall of Egypt:
-- LAPTOP-HP-SPECTRE-X360: 5 units available
-- LAPTOP-MACBOOK-PRO-16: 3 units available
-- LAPTOP-DELL-XPS-15: 0 units (out of stock)
-- MOBILE-IPHONE-15: 6 units available
-...
-```
-
+![alt text](<step4_images/スクリーンショット 2026-08-11 13.55.09.png>)
 ---
 
 ## SKU_Availability_Agent の動作について
@@ -110,7 +102,7 @@ Here are the available SKUs in Mall of Egypt:
 ```
 ユーザーの質問を解析
     ↓
-SKU と ブランチを抽出
+SKU と 支店を抽出
     ↓
 get_sku_availability(sku, branch) を呼び出す
     ↓
@@ -119,16 +111,6 @@ ksqlDB が inventory.availability から現在の在庫状況を返す
 結果を自然言語でユーザーに返す
 ```
 
----
-
-## 確認
-
-- [ ] `.env` ファイルに ksqlDB の認証情報が設定されている
-- [ ] `orchestrate toolkits add` コマンドが正常に完了している
-- [ ] watsonx Orchestrate UI に `SKU_Availability_Agent` が表示されている
-- [ ] エージェントのテストで在庫情報が返ってくる
-
----
 
 ## 次のステップ
 

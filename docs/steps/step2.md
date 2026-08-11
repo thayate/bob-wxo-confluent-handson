@@ -37,6 +37,8 @@ Bob が Confluent CLI コマンドと ksqlDB の SQL クエリを生成・実行
 認証情報の取得方法はBobに聞けば答えてくれます。<br>
 （Confluent Cloud UI右上のメニューから取得可能）<br>
 ![alt text](<step2_images/スクリーンショット 2026-08-11 1.12.26.png>)
+![alt text](<step2_images/スクリーンショット 2026-08-11 1.12.56.png>)
+
 ---
 ## 確認
 

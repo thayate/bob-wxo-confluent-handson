@@ -14,7 +14,7 @@ SKU Availability Agent がリアルタイムの Kafka 状態に依存するの�
 
 ### エージェントの動作
 
-1. エンタープライズドキュメントから製品仕様・説明を読み込む
+1. ドキュメントから製品仕様・説明を読み込む
 2. 要求された SKU の特性（カテゴリ、ティア、フォームファクター、主要機能）を理解する
 3. セマンティック類似検索で類似製品を特定する
 4. 推薦理由とともに 2〜3 件の代替 SKU を返す
@@ -32,13 +32,12 @@ SKU Availability Agent がリアルタイムの Kafka 状態に依存するの�
 
 **1. YAML ファイルを確認する**
 
-リポジトリのローカルクローン内で `Substitute_Finder_Agent.yaml` を確認します。
+前のステップでダウンロードした `Substitute_Finder_Agent.yaml`ファイルを使用します。
 
 **2. エージェントをインポートする**
 
 ```bash
-cd oic-i-agentic-ai-tutorials/confluent-agents
-orchestrate agents import -f Substitute_Finder_Agent.yaml
+resources/Substitute_Finder_Agent.yamlの名称に"ご自身のイニシャル_"を付け加えて、watsonx Orchestrateにインポートしてください
 ```
 
 **3. エージェントをデプロイする**
