@@ -29,9 +29,12 @@ ksqlDB クラスターの詳細は、Confluent UI の **ksqlDB** > クラスタ�
 
 ### 2. MCP ツールを watsonx Orchestrate にインポートする
 
-watsonx Orchestrateで使うMCPツール群やエージェント定義ファイルをダウンロードします。
+watsonx Orchestrateで使うMCPツール群やエージェント定義ファイルを[ダウンロード](https://downgit.github.io/#/home?url=https://github.com/thayate/bob-wxo-confluent-handson/tree/f14e83d023900b3b0ffd16cc7c4a1da18ebcf9c0/resource)します。<br>
 
-ダウンロードしたファイルは'resources'というプロジェクトフォルダに'resources'というフォルダを作成して格納してください。
+ファイルの内容は以下で確認できます。<br>
+[https://github.com/thayate/bob-wxo-confluent-handson/tree/f14e83d023900b3b0ffd16cc7c4a1da18ebcf9c0/resource](https://github.com/thayate/bob-wxo-confluent-handson/tree/f14e83d023900b3b0ffd16cc7c4a1da18ebcf9c0/resource)
+
+ダウンロードしたファイルはプロジェクトフォルダに`resources`というフォルダを作成して格納してください。
 
 以下のコマンドを実行して MCP ツールをインポートします。<br>
 ユニークな名称にするため、ご自身のイニシャルや名前を追加する指示をしてください。
@@ -57,7 +60,8 @@ orchestrate toolkits add \
 リポジトリに含まれている YAML 定義ファイルを使ってエージェントをインポートします。
 
 ```bash
-resources/sku-availability-agent.yamlの名称に"ご自身のイニシャル_"を付け加えて、watsonx Orchestrateにインポートしてください
+resources/sku-availability-agent.yamlの名称に
+"ご自身のイニシャル_"を付け加えて、watsonx Orchestrateにインポートしてください
 ```
 
 ---

@@ -9,15 +9,8 @@ IBM Bob、Confluent Cloud のマネージド Apache Kafka サービス、watsonx
 元チュートリアル：[Building an event-driven agentic AI system with Apache Kafka on Confluent Cloud and watsonx Orchestrate](https://developer.ibm.com/tutorials/event-driven-agentic-ai-system-confluent-watsonx-orchestrate/)
 
 ## ドキュメントの参照
-
-MkDocs でビルドしてローカルプレビューできます：
-
-```bash
-pip install -r requirements.txt
-mkdocs serve
-```
-
-ブラウザで `http://127.0.0.1:8000` を開いてください。
+以下のリンクからガイドにアクセスできます。
+[https://thayate.github.io/bob-wxo-confluent-handson/](https://thayate.github.io/bob-wxo-confluent-handson/)
 
 ## ハンズオンの構成
 
