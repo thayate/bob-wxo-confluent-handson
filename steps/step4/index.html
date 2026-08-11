@@ -256,25 +256,6 @@
   
 
       
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../appendix/troubleshooting.md" class="md-tabs__link">
-        
-  
-  
-    
-  
-  トラブルシューティング
-
-      </a>
-    </li>
-  
-
-      
     </ul>
   </div>
 </nav>
@@ -643,7 +624,7 @@
   <a href="#1-env-ksqldb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. .env ファイルに ksqlDB の認証情報を追加する
+        1. env ファイルに ksqlDB の認証情報を追加する
       
     </span>
   </a>
@@ -703,7 +684,7 @@
   <a href="#sku_availability_agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SKU_Availability_Agent の動作について
+        SKU_Availability_Agent の動作
       
     </span>
   </a>
@@ -793,33 +774,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../appendix/troubleshooting.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    トラブルシューティング
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -873,7 +827,7 @@
   <a href="#1-env-ksqldb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. .env ファイルに ksqlDB の認証情報を追加する
+        1. env ファイルに ksqlDB の認証情報を追加する
       
     </span>
   </a>
@@ -933,7 +887,7 @@
   <a href="#sku_availability_agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SKU_Availability_Agent の動作について
+        SKU_Availability_Agent の動作
       
     </span>
   </a>
@@ -981,7 +935,7 @@
 </div>
 <hr />
 <h2 id="_2">手順<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="1-env-ksqldb">1. .env ファイルに ksqlDB の認証情報を追加する<a class="headerlink" href="#1-env-ksqldb" title="Permanent link">&para;</a></h3>
+<h3 id="1-env-ksqldb">1. env ファイルに ksqlDB の認証情報を追加する<a class="headerlink" href="#1-env-ksqldb" title="Permanent link">&para;</a></h3>
 <p>MCP ツールは ksqlDB クラスターと通信するため、<code>.env</code> ファイルに ksqlDB の認証情報を追加します。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># .env ファイルに追加する項目</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">KSQLDB_ENDPOINT</span><span class="o">=</span>https://pksqlc-xxxxx.us-east-1.aws.confluent.cloud
@@ -991,13 +945,18 @@
 <img alt="alt text" src="../step4_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%209.03.44.png" /></p>
 <hr />
 <h3 id="2-mcp-watsonx-orchestrate">2. MCP ツールを watsonx Orchestrate にインポートする<a class="headerlink" href="#2-mcp-watsonx-orchestrate" title="Permanent link">&para;</a></h3>
-<p>watsonx Orchestrateで使うMCPツール群やエージェント定義ファイルを<a href="https://downgit.github.io/#/home?url=https://github.com/thayate/bob-wxo-confluent-handson/tree/f14e83d023900b3b0ffd16cc7c4a1da18ebcf9c0/resource">ダウンロード</a>します。<br></p>
-<p>ファイルの内容は以下で確認できます。<br>
+<ol>
+<li>
+<p>watsonx Orchestrateで使うMCPツール群やエージェント定義ファイルを<a href="https://downgit.github.io/#/home?url=https://github.com/thayate/bob-wxo-confluent-handson/tree/f14e83d023900b3b0ffd16cc7c4a1da18ebcf9c0/resource">ダウンロード</a>します。<br>
+ファイルの内容は以下で確認できます。<br>
 <a href="https://github.com/thayate/bob-wxo-confluent-handson/tree/f14e83d023900b3b0ffd16cc7c4a1da18ebcf9c0/resource">https://github.com/thayate/bob-wxo-confluent-handson/tree/f14e83d023900b3b0ffd16cc7c4a1da18ebcf9c0/resource</a></p>
+</li>
+<li>
 <p>ダウンロードしたファイルはプロジェクトフォルダに<code>resources</code>というフォルダを作成して格納してください。</p>
-<p>以下のコマンドを実行して MCP ツールをインポートします。<br>
-ユニークな名称にするため、ご自身のイニシャルや名前を追加する指示をしてください。</p>
-<p>Bobに以下の指示をしてください。
+</li>
+<li>
+<p>Bobに指示をして MCP ツールをインポートします。<br>
+ユニークな名称にするため、<strong>ご自身のイニシャルや名前</strong>を追加する指示をしてください。
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>watsonx<span class="w"> </span>OrchestrateのADKで以下のコマンドを実行してください。
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>インポートするツールに<span class="s2">&quot;ご自身のイニシャル_&quot;</span>を追加してユニークな名称にしてください。
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>orchestrate<span class="w"> </span>toolkits<span class="w"> </span>add<span class="w"> </span><span class="se">\</span>
@@ -1009,6 +968,8 @@
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span>--command<span class="w"> </span><span class="s2">&quot;python3 get_sku_availability.py&quot;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span>--tools<span class="w"> </span><span class="s2">&quot;*&quot;</span>
 </code></pre></div></p>
+</li>
+</ol>
 <hr />
 <h3 id="3">3. エージェント定義ファイルをインポートする<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>リポジトリに含まれている YAML 定義ファイルを使ってエージェントをインポートします。</p>
@@ -1024,7 +985,7 @@
 <img alt="alt text" src="../step4_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%2013.22.05.png" /></p>
 </li>
 <li>
-<p><strong>[ご自身のイニシャル]_SKU_Availability_Agent</strong> をクリックする</p>
+<p>先ほど作成した<strong>SKU_Availability_Agent</strong> をクリックする</p>
 </li>
 <li>
 <p>MCP ツール（<code>sku-availability-checker</code>）が紐付けられていることを確認する<br>
@@ -1049,7 +1010,7 @@
 <p><strong>期待される回答例：</strong>
 <img alt="alt text" src="../step4_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%2013.55.09.png" /></p>
 <hr />
-<h2 id="sku_availability_agent">SKU_Availability_Agent の動作について<a class="headerlink" href="#sku_availability_agent" title="Permanent link">&para;</a></h2>
+<h2 id="sku_availability_agent">SKU_Availability_Agent の動作<a class="headerlink" href="#sku_availability_agent" title="Permanent link">&para;</a></h2>
 <p>このエージェントは以下のロジックで動作します：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ユーザーの質問を解析
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    ↓

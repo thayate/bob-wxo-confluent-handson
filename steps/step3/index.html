@@ -256,25 +256,6 @@
   
 
       
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../appendix/troubleshooting.md" class="md-tabs__link">
-        
-  
-  
-    
-  
-  トラブルシューティング
-
-      </a>
-    </li>
-  
-
-      
     </ul>
   </div>
 </nav>
@@ -732,33 +713,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../appendix/troubleshooting.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    トラブルシューティング
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -875,9 +829,10 @@
 <h2 id="bob">Bob への指示例<a class="headerlink" href="#bob" title="Permanent link">&para;</a></h2>
 <p>Bob に以下のように指示してください：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>スクリプトを使用して、トピック inventory.transaction にサンプルメッセージを 20 件パブリッシュしてください。
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>対象となるのは、2つのbranch（支店）の「MallOfEgypt」と「DubaiMall」、3種類のSKUのノートパソコンと3種類のSKUのモバイル機器です。
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>いずれかのbranchで、ノートパソコンの在庫数を 0 (全在庫消費) にします。
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>その後、ksqlDB 上でメッセージが正しく処理されていることを確認してください。
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>対象となるのは、2つのbranch（支店）の「MallOfEgypt」と「DubaiMall」、
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>3種類のSKUのノートパソコンと3種類のSKUのモバイル機器です。
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>いずれかのbranchで、ノートパソコンの在庫数を 0 (全在庫消費) にします。
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>その後、ksqlDB 上でメッセージが正しく処理されていることを確認してください。
 </code></pre></div>
 <p>Bob が Python スクリプトを生成してサンプルデータを投入し、ksqlDB での処理を検証します。</p>
 <hr />

@@ -254,25 +254,6 @@
   
 
       
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../appendix/troubleshooting.md" class="md-tabs__link">
-        
-  
-  
-    
-  
-  トラブルシューティング
-
-      </a>
-    </li>
-  
-
-      
     </ul>
   </div>
 </nav>
@@ -881,33 +862,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../appendix/troubleshooting.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    トラブルシューティング
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -1149,7 +1103,7 @@
   
 
 
-<h1 id="6">ステップ6：スーパーバイザーエージェントを作成する（整備中）<a class="headerlink" href="#6" title="Permanent link">&para;</a></h1>
+<h1 id="6">ステップ6：スーパーバイザーエージェントを作成する<a class="headerlink" href="#6" title="Permanent link">&para;</a></h1>
 <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>このステップでは、<strong>Store Associate Agent（店舗スタッフエージェント）</strong>を作成します。このエージェントはスーパーバイザーエージェントとして機能し、これまでに作成した 2 つの専門エージェントを調整して、店舗スタッフ向けの単一のインタラクションポイントを提供します。</p>
 <hr />
@@ -1178,10 +1132,11 @@ Bobに以下の指示をしてください。
 </code></pre></div></p>
 <hr />
 <h2 id="_4">エージェントをテストする<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>エージェントが正しく動作するかを確認するために、以下のテストシナリオを実行します。</p>
+<p>エージェントが正しく動作するかを確認するために、2つのテストシナリオを実行します。</p>
 <h3 id="a">テストA：在庫切れ + 代替品推薦<a class="headerlink" href="#a" title="Permanent link">&para;</a></h3>
-<p>watsonx Orchestrateのエージェントに以下の質問をしてください。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Mall of Egyptで入手可能なSKUは何ですか？
+<p>在庫切れのSKUについてエージェントに問い合わせてみます。
+watsonx Orchestrateのエージェントに以下の質問をしてください。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Mall of EgyptでLAPTOP-DELL-XPS-15は入手できますか?
 </code></pre></div></p>
 <p><strong>期待される動作フロー：</strong></p>
 <ol>
@@ -1193,24 +1148,15 @@ Bobに以下の指示をしてください。
 <li>Substitute Finder Agent が製品カタログからセマンティック検索を行う</li>
 <li>最終的な回答が返ってくる</li>
 </ol>
-<p><strong>期待される回答例：</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>LAPTOP-DELL-XPS-15 is currently out of stock at Mall of Egypt.
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Here are some alternative laptops available:
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>1. LAPTOP-HP-SPECTRE-X360
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>   - A premium ultrabook with similar performance specs
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>   - Intel Core i7, 16GB RAM, 512GB SSD
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>   - Great alternative for professional productivity
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>2. LAPTOP-MACBOOK-PRO-16
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>   - High-performance laptop for creative and professional work
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>   - Apple M3 chip, 16GB RAM, 512GB SSD
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>   ...
-</code></pre></div></p>
+<p><strong>期待される回答例：</strong><br>
+<img alt="alt text" src="../step6_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%2019.09.01.png" /></p>
 <h3 id="b">テストB：在庫あり<a class="headerlink" href="#b" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Do you have LAPTOP-MACBOOK-PRO-16 in MallOfEgypt?
+<p>テストのためにStep4で実装したSKU Availability Agentに以下のような質問を投げかけて<strong>在庫が1以上のSKU</strong>をメモしておいてください。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Mall of Egyptで入手可能なSKUは何ですか?
 </code></pre></div>
+<img alt="alt text" src="../step6_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%2018.15.23.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Mall of Egyptで[先ほどメモしたSKU]は入手できますか?
+</code></pre></div></p>
 <p><strong>期待される動作フロー：</strong></p>
 <ol>
 <li>Store Associate Agent がリクエストを解析する</li>
@@ -1219,13 +1165,11 @@ Bobに以下の指示をしてください。
 <li>Substitute Finder Agent への委任は行わない</li>
 <li>在庫数量を含む回答が返ってくる</li>
 </ol>
-<p><strong>期待される回答例：</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>LAPTOP-MACBOOK-PRO-16 is available at Mall of Egypt.
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Current quantity: 3 units in stock.
-</code></pre></div></p>
+<p><strong>期待される回答例：</strong><br>
+<img alt="alt text" src="../step6_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%2019.11.18.png" /></p>
 <hr />
 <h2 id="_5">ハンズオンのまとめ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>このハンズオンでは、<strong>Confluent Cloud</strong> と <strong>watsonx Orchestrate</strong> を使ってイベント駆動型エージェント AI システムを構築する方法を学びました。</p>
+<p>このハンズオンでは、<strong>IBM Bob</strong>、<strong>Confluent Cloud</strong> と <strong>watsonx Orchestrate</strong> を使ってイベント駆動型エージェント AI システムを構築する方法を学びました。</p>
 <h3 id="_6">構築したもの<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <table>
 <thead>

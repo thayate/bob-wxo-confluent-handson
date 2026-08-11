@@ -254,25 +254,6 @@
   
 
       
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="appendix/troubleshooting.md" class="md-tabs__link">
-        
-  
-  
-    
-  
-  トラブルシューティング
-
-      </a>
-    </li>
-  
-
-      
     </ul>
   </div>
 </nav>
@@ -744,33 +725,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="appendix/troubleshooting.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    トラブルシューティング
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -880,11 +834,12 @@
 
 <h1 id="_1">イベント駆動型エージェント構築ハンズオン<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>元ドキュメント:</strong> <a href="https://developer.ibm.com/tutorials/event-driven-agentic-ai-system-confluent-watsonx-orchestrate/">Building an event-driven agentic AI system with Apache Kafka on Confluent Cloud and watsonx Orchestrate</a></p>
+<p><strong>元ドキュメント:</strong> <br><a href="https://developer.ibm.com/tutorials/event-driven-agentic-ai-system-confluent-watsonx-orchestrate/">Building an event-driven agentic AI system with Apache Kafka on Confluent Cloud and watsonx Orchestrate</a></p>
 </blockquote>
 <h2 id="_2">このハンズオンについて<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>このハンズオンでは、<strong>IBM Bob</strong>、<strong>Confluent CloudのManaged Apache Kafkaサービス</strong>と<strong>watsonx Orchestrate</strong>を使って、イベント駆動型エージェントシステムを構築する方法を解説します。</p>
-<p>エージェントはKafkaトピックのイベントをリアルタイムで消費・分析し、ビジネスドキュメント（製品カタログ等）と照合することで、ライブの業務シグナルを解釈・説明します。このパターンは以下のようなユースケースに特に有効です：</p>
+<p>エージェントはKafkaトピックのイベントをリアルタイムで消費・分析し、ビジネスドキュメント（製品カタログ等）と照合することで、鮮度の高い業務イベントを解釈・説明します。<br>
+このパターンは以下のようなユースケースに特に有効です：</p>
 <ul>
 <li>業務上の問題をリアルタイムに監視する</li>
 <li>新たなリスクを早期検知する</li>
@@ -910,7 +865,7 @@
 <li>Confluent Cloud での Kafka トピックおよび ksqlDB クラスターの作成</li>
 <li>トピックへのサンプルイベントの投入</li>
 <li>watsonx Orchestrate 上での MCP ツールおよび AI エージェントの構築</li>
-<li>Agentic RAG によるエンタープライズドキュメントでの Kafka イベント強化</li>
+<li>Agentic RAG による製品カタログドキュメントでの Kafka イベント強化</li>
 </ul>
 <hr />
 <h2 id="_5">ハンズオンの流れ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
@@ -959,7 +914,8 @@
 <hr />
 <div class="admonition info">
 <p class="admonition-title">対象読者</p>
-<p>このハンズオンは、Apache Kafka の基本概念（トピック、コンシューマー等）の知識を持ち、AI エージェントの実装に興味がある開発者・アーキテクトを対象としています。</p>
+<p>このハンズオンは、Apache Kafka の基本概念（トピック、コンシューマー等）の知識を持ち、AI エージェントの実装に興味がある開発者・アーキテクトを対象としています。<br>
+初学者には難しい内容も含んでおり、中上級者向けのハンズオンになります。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">バージョン情報</p>
