@@ -1,4 +1,4 @@
-# ステップ6：スーパーバイザーエージェントを作成する
+# ステップ6：スーパーバイザーエージェントを作成する（整備中）
 
 ## 概要
 
@@ -19,33 +19,6 @@
 
 このパターンは、スーパーバイザーエージェントが複数のドメイン専門エージェントを調整する **watsonx Orchestrate のエージェントオーケストレーション**の動作を示しています。
 
----
-
-## エージェントの処理ロジック
-
-```
-ユーザーの質問を受け取る
-（例：「MallOfEgypt に LAPTOP-DELL-XPS-15 はありますか？」）
-        ↓
-SKU Availability Agent に在庫確認を委任する
-        ↓
-    ┌───────────────┐
-    │ 在庫あり？     │
-    └───────────────┘
-     │はい          │いいえ
-     ↓              ↓
- 在庫数量を返す    Substitute Finder Agent
-                   に代替品推薦を委任する
-                        ↓
-                   代替品と推薦理由を返す
-        ↓
- 最終的な顧客向け回答をまとめて返す
-```
-
-!!! note
-    ブランチをまたいだ在庫検索（他の店舗で在庫があるか確認する機能）はこのハンズオンの範囲外ですが、拡張機能として後から追加できます。
-
----
 
 ## Store Associate Agent を作成する
 
@@ -55,20 +28,17 @@ SKU Availability Agent に在庫確認を委任する
 
 **1. YAML ファイルを確認する**
 
-リポジトリのローカルクローン内の `confluent-agents` フォルダで `Store_Associate_Agent.yaml` を確認します。
+ステップ4でダウンロードした `Store_Associate_Agent.yaml` を使用します。
 
 **2. Agent Development Kit でエージェントをインポートする**
-
+Bobに以下の指示をしてください。
 ```bash
-cd oic-i-agentic-ai-tutorials/confluent-agents
-orchestrate agents import -f Store_Associate_Agent.yaml
+resources/Store_Associate_Agent.yamlの名称に"ご自身のイニシャル_"を付け加えて、
+watsonx Orchestrateにインポートしてください
+関連づけるサブエージェントの名称は先ほどインポートした
+SKU_Availability_AgentとSubstitute_Finder_Agent
+の名称に合わせてください。
 ```
-
-**3. エージェントをデプロイする**
-
-1. インポートが完了したら、**Deploy** ボタンをクリックする
-2. Pre-deployment summary ウィンドウで **Deploy** を再度クリックする
-
 ---
 
 ## エージェントをテストする
@@ -77,9 +47,11 @@ orchestrate agents import -f Store_Associate_Agent.yaml
 
 ### テストA：在庫切れ + 代替品推薦
 
+watsonx Orchestrateのエージェントに以下の質問をしてください。
 ```
-Do you have LAPTOP-DELL-XPS-15 in MallOfEgypt?
+Mall of Egyptで入手可能なSKUは何ですか？
 ```
+
 
 **期待される動作フロー：**
 

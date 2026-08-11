@@ -35,9 +35,10 @@ SKU Availability Agent がリアルタイムの Kafka 状態に依存するの�
 前のステップでダウンロードした `Substitute_Finder_Agent.yaml`ファイルを使用します。
 
 **2. エージェントをインポートする**
-
+Bobに以下の指示をしてください。
 ```bash
-resources/Substitute_Finder_Agent.yamlの名称に"ご自身のイニシャル_"を付け加えて、watsonx Orchestrateにインポートしてください
+resources/Substitute_Finder_Agent.yamlの名称に"ご自身のイニシャル_"を付け加えて、
+watsonx Orchestrateにインポートしてください
 ```
 
 **3. エージェントをデプロイする**
@@ -74,19 +75,19 @@ resources/Substitute_Finder_Agent.yamlの名称に"ご自身のイニシャル_"
 
 ### アップロード手順
 
-**1. watsonx Orchestrate UI を開く**
+**1. 左上のメニュー > ビルド から`Substitute_Finder_Agent`の管理画面に移動する**
 
-**2. ナレッジソース管理に移動する**
+**2. 知識ソースからソースを追加するをクリック**<br>
+![alt text](<step5_images/スクリーンショット 2026-08-11 14.06.00.png>)
 
-**enterprise documents** または **knowledge sources** の管理セクションに移動します。
-
-**3. 新しいナレッジを追加する**
-
-**Add New Knowledge** をクリックします。
+**3. 新しい知識をクリック**
 
 **4. ファイルをアップロードする**
 
-**Upload Files** をクリックして `product-catalog.docx` を選択します。
+**ファイルのアップロード** をクリックして **次へ** を選択します。<br>
+![alt text](<step5_images/スクリーンショット 2026-08-11 14.10.48.png>)
+
+`product-catalog.docx`をアップロードします。
 
 **5. Next をクリックする**
 
@@ -100,7 +101,7 @@ resources/Substitute_Finder_Agent.yamlの名称に"ご自身のイニシャル_"
 !!! warning "名前の重要性"
     名前は必ず `enterprise_documents` に設定してください。エージェントの YAML 定義がこの名前でナレッジソースを参照しています。
 
-**7. Save をクリックする**
+**7. 保存 をクリックする**
 
 インデックス処理が完了するまで待ちます（数分かかる場合があります）。ドキュメントがセマンティック検索に利用可能になったことを確認してください。
 
@@ -110,29 +111,21 @@ resources/Substitute_Finder_Agent.yamlの名称に"ご自身のイニシャル_"
 
 次のステップでスーパーバイザーエージェントと統合する前に、このエージェントを単独でテストします。
 
-### テスト1：グラウンディングテスト
-
-エンタープライズ製品カタログから LAPTOP-DELL-XPS-15 のエントリを取得し、主要な属性を一覧にしてください。
+### テスト1
+```
+製品カタログから LAPTOP-DELL-XPS-15 のエントリを取得し、主要な属性を一覧にしてください。
+```
 
 **期待される動作：**  
-エージェントがカタログエントリを取得し、ドキュメントに定義された属性を一覧表示します。追加の確認質問なしに回答します。
-
-### テスト2：類似性テスト
-
+エージェントがカタログエントリを取得し、ドキュメントに定義された属性を一覧表示します。<br>
+![alt text](<step5_images/スクリーンショット 2026-08-11 14.17.09.png>)
+### テスト2
+```
 LAPTOP-DELL-XPS-15 は在庫がありません。製品カタログを使って類似のラップトップを提案してください。
-
+```
 **期待される動作：**  
-エージェントが `HP-SPECTRE-X360` を推薦し、カタログから共通属性を使って推薦理由を説明します。
-
----
-
-## 確認
-
-- [ ] `Substitute_Finder_Agent` が watsonx Orchestrate にインポートされ、デプロイされている
-- [ ] `product-catalog.docx` が `enterprise_documents` という名前でアップロードされている
-- [ ] テスト1：エージェントが製品の属性を正しく返す
-- [ ] テスト2：エージェントが適切な代替品を推薦する
-
+エージェントが `HP-SPECTRE-X360` を推薦し、カタログから共通属性を使って推薦理由を説明します。<br>
+![alt text](<step5_images/スクリーンショット 2026-08-11 14.18.04.png>)
 ---
 
 ## 次のステップ
