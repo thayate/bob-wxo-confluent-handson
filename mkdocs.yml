@@ -2,8 +2,9 @@ site_name: イベント駆動型エージェントAIシステム ハンズオン
 site_description: Confluent Cloud（Apache Kafka）と watsonx Orchestrate を使ったイベント駆動型エージェントAIシステム構築チュートリアル
 site_author: IBM Developer
 docs_dir: docs
-repo_url: https://github.com/IBM/oic-i-agentic-ai-tutorials
-repo_name: IBM/oic-i-agentic-ai-tutorials
+site_url: https://thayate.github.io/bob-wxo-confluent-handson/
+repo_url: https://github.com/thayate/bob-wxo-confluent-handson
+repo_name: thayate/bob-wxo-confluent-handson
 
 theme:
   name: material
