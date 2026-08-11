@@ -1104,7 +1104,7 @@
 <p>このステップの目的は、静的なルールやハードコードされたマッピングに依存せず、製品仕様の<strong>意味的な理解</strong>と<strong>構造化された推論</strong>を組み合わせてエージェントが動作できることを実証することです。</p>
 <h3 id="_2">エージェントの動作<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ol>
-<li>エンタープライズドキュメントから製品仕様・説明を読み込む</li>
+<li>ドキュメントから製品仕様・説明を読み込む</li>
 <li>要求された SKU の特性（カテゴリ、ティア、フォームファクター、主要機能）を理解する</li>
 <li>セマンティック類似検索で類似製品を特定する</li>
 <li>推薦理由とともに 2〜3 件の代替 SKU を返す</li>
@@ -1118,10 +1118,9 @@
 <p>エージェントの定義はリポジトリ内の YAML ファイルとして提供されています。</p>
 <h3 id="_3">手順<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p><strong>1. YAML ファイルを確認する</strong></p>
-<p>リポジトリのローカルクローン内で <code>Substitute_Finder_Agent.yaml</code> を確認します。</p>
+<p>前のステップでダウンロードした <code>Substitute_Finder_Agent.yaml</code>ファイルを使用します。</p>
 <p><strong>2. エージェントをインポートする</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>oic-i-agentic-ai-tutorials/confluent-agents
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>orchestrate<span class="w"> </span>agents<span class="w"> </span>import<span class="w"> </span>-f<span class="w"> </span>Substitute_Finder_Agent.yaml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>resources/Substitute_Finder_Agent.yamlの名称に<span class="s2">&quot;ご自身のイニシャル_&quot;</span>を付け加えて、watsonx<span class="w"> </span>Orchestrateにインポートしてください
 </code></pre></div>
 <p><strong>3. エージェントをデプロイする</strong></p>
 <p>インポートが完了したら、エージェントをアクティブ状態にするためにデプロイします：</p>
