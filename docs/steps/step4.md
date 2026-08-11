@@ -13,7 +13,7 @@ MCP ツールとエージェントの設定は IBM Bob の助けを借りて作�
 
 ## 手順
 
-### 1. .env ファイルに ksqlDB の認証情報を追加する
+### 1. env ファイルに ksqlDB の認証情報を追加する
 
 MCP ツールは ksqlDB クラスターと通信するため、`.env` ファイルに ksqlDB の認証情報を追加します。
 
@@ -29,17 +29,14 @@ ksqlDB クラスターの詳細は、Confluent UI の **ksqlDB** > クラスタ�
 
 ### 2. MCP ツールを watsonx Orchestrate にインポートする
 
-watsonx Orchestrateで使うMCPツール群やエージェント定義ファイルを[ダウンロード](https://downgit.github.io/#/home?url=https://github.com/thayate/bob-wxo-confluent-handson/tree/f14e83d023900b3b0ffd16cc7c4a1da18ebcf9c0/resource)します。<br>
-
+1. watsonx Orchestrateで使うMCPツール群やエージェント定義ファイルを[ダウンロード](https://downgit.github.io/#/home?url=https://github.com/thayate/bob-wxo-confluent-handson/tree/f14e83d023900b3b0ffd16cc7c4a1da18ebcf9c0/resource)します。<br>
 ファイルの内容は以下で確認できます。<br>
 [https://github.com/thayate/bob-wxo-confluent-handson/tree/f14e83d023900b3b0ffd16cc7c4a1da18ebcf9c0/resource](https://github.com/thayate/bob-wxo-confluent-handson/tree/f14e83d023900b3b0ffd16cc7c4a1da18ebcf9c0/resource)
 
-ダウンロードしたファイルはプロジェクトフォルダに`resources`というフォルダを作成して格納してください。
+2. ダウンロードしたファイルはプロジェクトフォルダに`resources`というフォルダを作成して格納してください。
 
-以下のコマンドを実行して MCP ツールをインポートします。<br>
-ユニークな名称にするため、ご自身のイニシャルや名前を追加する指示をしてください。
-
-Bobに以下の指示をしてください。
+3. Bobに指示をして MCP ツールをインポートします。<br>
+ユニークな名称にするため、**ご自身のイニシャルや名前**を追加する指示をしてください。
 ```bash
 watsonx OrchestrateのADKで以下のコマンドを実行してください。
 インポートするツールに"ご自身のイニシャル_"を追加してユニークな名称にしてください。
@@ -72,7 +69,7 @@ resources/sku-availability-agent.yamlの名称に
 2. **ビルド** に移動する<br>
 ![alt text](<step4_images/スクリーンショット 2026-08-11 13.22.05.png>)
 
-3. **[ご自身のイニシャル]_SKU_Availability_Agent** をクリックする
+3. 先ほど作成した**SKU_Availability_Agent** をクリックする
 4. MCP ツール（`sku-availability-checker`）が紐付けられていることを確認する<br>
 ![alt text](<step4_images/スクリーンショット 2026-08-11 13.57.53.png>)
 
@@ -99,7 +96,7 @@ Mall of Egyptで入手可能なSKUは何ですか?
 ![alt text](<step4_images/スクリーンショット 2026-08-11 13.55.09.png>)
 ---
 
-## SKU_Availability_Agent の動作について
+## SKU_Availability_Agent の動作
 
 このエージェントは以下のロジックで動作します：
 

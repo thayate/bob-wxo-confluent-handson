@@ -1,12 +1,13 @@
 # イベント駆動型エージェント構築ハンズオン
 
-> **元ドキュメント:** [Building an event-driven agentic AI system with Apache Kafka on Confluent Cloud and watsonx Orchestrate](https://developer.ibm.com/tutorials/event-driven-agentic-ai-system-confluent-watsonx-orchestrate/)
+> **元ドキュメント:** <br>[Building an event-driven agentic AI system with Apache Kafka on Confluent Cloud and watsonx Orchestrate](https://developer.ibm.com/tutorials/event-driven-agentic-ai-system-confluent-watsonx-orchestrate/)
 
 ## このハンズオンについて
 
 このハンズオンでは、**IBM Bob**、**Confluent CloudのManaged Apache Kafkaサービス**と**watsonx Orchestrate**を使って、イベント駆動型エージェントシステムを構築する方法を解説します。
 
-エージェントはKafkaトピックのイベントをリアルタイムで消費・分析し、ビジネスドキュメント（製品カタログ等）と照合することで、ライブの業務シグナルを解釈・説明します。このパターンは以下のようなユースケースに特に有効です：
+エージェントはKafkaトピックのイベントをリアルタイムで消費・分析し、ビジネスドキュメント（製品カタログ等）と照合することで、鮮度の高い業務イベントを解釈・説明します。<br>
+このパターンは以下のようなユースケースに特に有効です：
 
 - 業務上の問題をリアルタイムに監視する
 - 新たなリスクを早期検知する
@@ -38,7 +39,7 @@
 - Confluent Cloud での Kafka トピックおよび ksqlDB クラスターの作成
 - トピックへのサンプルイベントの投入
 - watsonx Orchestrate 上での MCP ツールおよび AI エージェントの構築
-- Agentic RAG によるエンタープライズドキュメントでの Kafka イベント強化
+- Agentic RAG による製品カタログドキュメントでの Kafka イベント強化
 
 ---
 
@@ -58,7 +59,8 @@
 ---
 
 !!! info "対象読者"
-    このハンズオンは、Apache Kafka の基本概念（トピック、コンシューマー等）の知識を持ち、AI エージェントの実装に興味がある開発者・アーキテクトを対象としています。
+    このハンズオンは、Apache Kafka の基本概念（トピック、コンシューマー等）の知識を持ち、AI エージェントの実装に興味がある開発者・アーキテクトを対象としています。<br>
+    初学者には難しい内容も含んでおり、中上級者向けのハンズオンになります。
 
 !!! note "バージョン情報"
     このハンズオンは watsonx Orchestrate ADK バージョン **2.1** で動作検証済みです。

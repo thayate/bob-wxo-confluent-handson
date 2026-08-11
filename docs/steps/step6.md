@@ -1,4 +1,4 @@
-# ステップ6：スーパーバイザーエージェントを作成する（整備中）
+# ステップ6：スーパーバイザーエージェントを作成する
 
 ## 概要
 
@@ -43,15 +43,15 @@ SKU_Availability_AgentとSubstitute_Finder_Agent
 
 ## エージェントをテストする
 
-エージェントが正しく動作するかを確認するために、以下のテストシナリオを実行します。
+エージェントが正しく動作するかを確認するために、2つのテストシナリオを実行します。
 
 ### テストA：在庫切れ + 代替品推薦
 
+在庫切れのSKUについてエージェントに問い合わせてみます。
 watsonx Orchestrateのエージェントに以下の質問をしてください。
 ```
-Mall of Egyptで入手可能なSKUは何ですか？
+Mall of EgyptでLAPTOP-DELL-XPS-15は入手できますか?
 ```
-
 
 **期待される動作フロー：**
 
@@ -63,27 +63,18 @@ Mall of Egyptで入手可能なSKUは何ですか？
 6. Substitute Finder Agent が製品カタログからセマンティック検索を行う
 7. 最終的な回答が返ってくる
 
-**期待される回答例：**
-```
-LAPTOP-DELL-XPS-15 is currently out of stock at Mall of Egypt.
-
-Here are some alternative laptops available:
-
-1. LAPTOP-HP-SPECTRE-X360
-   - A premium ultrabook with similar performance specs
-   - Intel Core i7, 16GB RAM, 512GB SSD
-   - Great alternative for professional productivity
-
-2. LAPTOP-MACBOOK-PRO-16
-   - High-performance laptop for creative and professional work
-   - Apple M3 chip, 16GB RAM, 512GB SSD
-   ...
-```
+**期待される回答例：**<br>
+![alt text](<step6_images/スクリーンショット 2026-08-11 19.09.01.png>)
 
 ### テストB：在庫あり
 
+テストのためにStep4で実装したSKU Availability Agentに以下のような質問を投げかけて**在庫が1以上のSKU**をメモしておいてください。
 ```
-Do you have LAPTOP-MACBOOK-PRO-16 in MallOfEgypt?
+Mall of Egyptで入手可能なSKUは何ですか?
+```
+![alt text](<step6_images/スクリーンショット 2026-08-11 18.15.23.png>)
+```
+Mall of Egyptで[先ほどメモしたSKU]は入手できますか?
 ```
 
 **期待される動作フロー：**
@@ -94,17 +85,14 @@ Do you have LAPTOP-MACBOOK-PRO-16 in MallOfEgypt?
 4. Substitute Finder Agent への委任は行わない
 5. 在庫数量を含む回答が返ってくる
 
-**期待される回答例：**
-```
-LAPTOP-MACBOOK-PRO-16 is available at Mall of Egypt.
-Current quantity: 3 units in stock.
-```
+**期待される回答例：**<br>
+![alt text](<step6_images/スクリーンショット 2026-08-11 19.11.18.png>)
 
 ---
 
 ## ハンズオンのまとめ
 
-このハンズオンでは、**Confluent Cloud** と **watsonx Orchestrate** を使ってイベント駆動型エージェント AI システムを構築する方法を学びました。
+このハンズオンでは、**IBM Bob**、**Confluent Cloud** と **watsonx Orchestrate** を使ってイベント駆動型エージェント AI システムを構築する方法を学びました。
 
 ### 構築したもの
 

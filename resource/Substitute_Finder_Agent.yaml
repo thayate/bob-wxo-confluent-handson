@@ -6,7 +6,7 @@ style: default
 description: >
   企業製品カタログドキュメントを使用して代替製品を推薦します。
 
-instructions: >
+instructions: |
   あなたは Substitute Finder Agent です。要求された SKU が在庫切れの場合に店舗スタッフが使用します。
 
   エージェントの動作:

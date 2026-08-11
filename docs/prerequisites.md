@@ -1,4 +1,4 @@
-# 前提条件
+# 前提条件（整備中）
 
 ハンズオンを開始する前に、以下の環境・アカウントを準備してください。
 
@@ -44,26 +44,8 @@ Apache Kafka へのアクセス権を持つ **Confluent Cloud** アカウント�
 |-------------|-----------|------|
 | Python | 3.8 以上 | サンプルメッセージ投入スクリプト実行 |
 | Confluent CLI | 最新版 | ksqlDB クラスター作成 |
-| Git | 任意 | リポジトリのクローン |
-
-### Confluent CLI のインストール
-
-```bash
-# macOS (Homebrew)
-brew install confluentinc/tap/cli
-
-# その他のプラットフォームは公式ドキュメントを参照
-# https://docs.confluent.io/confluent-cli/current/install.html
-```
+| watsonx Orchestrate ADK | 2.1 以上 | AIエージェント構築 |
 
 ---
-
-## 事前確認チェックリスト
-
-- [ ] watsonx Orchestrate ADK がローカルで起動している
-- [ ] watsonx Orchestrate インスタンスへのアクセスが確認できている
-- [ ] Confluent Cloud アカウントにログインできる
-- [ ] Python 3.8 以上がインストールされている
-- [ ] Confluent CLI がインストールされている
 
 すべて確認できたら、[アーキテクチャ概要](overview.md)に進んでください。
