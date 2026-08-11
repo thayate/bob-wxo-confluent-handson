@@ -6,10 +6,11 @@ Confluent Cloud（Apache Kafka）と watsonx Orchestrate を使ったイベン�
 
 IBM Bob、Confluent Cloud のマネージド Apache Kafka サービス、watsonx Orchestrate を組み合わせて、リアルタイムの在庫確認と代替品推薦を行うエージェントシステムを構築します。
 
-元チュートリアル：[Building an event-driven agentic AI system with Apache Kafka on Confluent Cloud and watsonx Orchestrate](https://developer.ibm.com/tutorials/event-driven-agentic-ai-system-confluent-watsonx-orchestrate/)
+元チュートリアル：<br>
+[Building an event-driven agentic AI system with Apache Kafka on Confluent Cloud and watsonx Orchestrate](https://developer.ibm.com/tutorials/event-driven-agentic-ai-system-confluent-watsonx-orchestrate/)
 
 ## ドキュメントの参照
-以下のリンクからガイドにアクセスできます。
+以下のリンクからガイドにアクセスできます。<br>
 [https://thayate.github.io/bob-wxo-confluent-handson/](https://thayate.github.io/bob-wxo-confluent-handson/)
 
 ## ハンズオンの構成
@@ -24,4 +25,3 @@ IBM Bob、Confluent Cloud のマネージド Apache Kafka サービス、watsonx
 | ステップ4 | MCP ツールと AI エージェントを watsonx Orchestrate に作成する |
 | ステップ5 | Agentic RAG エージェントを作成する |
 | ステップ6 | スーパーバイザーエージェントを作成・テストする |
-| トラブルシューティング | よくある問題と解決策 |
