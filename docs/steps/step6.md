@@ -36,7 +36,8 @@ Bobに以下の指示をしてください。
 resources/Store_Associate_Agent.yamlの名称に"ご自身のイニシャル_"を付け加えて、
 watsonx Orchestrateにインポートしてください
 collaboratorsのサブエージェントは先ほどインポートした
-ご自身のイニシャル_"SKU_Availability_Agentとご自身のイニシャル_"Substitute_Finder_Agentにしてください
+"ご自身のイニシャル_"SKU_Availability_Agentと
+"ご自身のイニシャル_"Substitute_Finder_Agentにしてください
 ```
 ---
 
