@@ -47,6 +47,12 @@ CONFLUENT_BOOTSTRAP_SERVERS=pkc-xxxxx.ap-northeast-1.aws.confluent.cloud:9092
 CONFLUENT_API_KEY=FTxxxxxxx
 CONFLUENT_API_SECRET=cfltxxxxxxxxxxxxx
 
+# --- Cloud スコープの API Key / Secret（ksqlDB クラスター作成に必要）---
+# 取得手順: Confluent Cloud Console 右上のメニュー(Administration) > API keys
+#           > Add API key > My account > Resource scope: Global > Next
+CONFLUENT_CLOUD_API_KEY=EYC5xxxxxxxx
+CONFLUENT_CLOUD_API_SECRET=cfltxxxxxxxxxxxxx
+
 # --- トピック設定 ---
 # トピック名（デフォルト: inventory.transactions）
 TOPIC_NAME=inventory.transactions
@@ -62,8 +68,12 @@ TOPIC_RETENTION_MS=604800000
 TOPIC_REPLICATION_FACTOR=3
 
 ```
+
+実際の認証情報は後ほど埋めていきます。
+
 ## Bob にトピック作成のためのスクリプト作成を指示する
 
+以降の手順ではBobのモードは`Agent`モードで実施します。<br>
 Bob に以下のように指示してください：
 
 ```
@@ -74,31 +84,40 @@ Confluentの詳細情報と認証情報は.env.exampleにある項目を使用�
 
 Bob が Python スクリプトを生成します。
 
+
 ## .env ファイルへの認証情報入力
 
 ### 必要な環境変数と取得場所
-**CONFLUENT_BOOTSTRAP_SERVERS / CONFLUENT_REST_ENDPOINT / CONFLUENT_CLUSTER_ID**
+1. **CONFLUENT_BOOTSTRAP_SERVERS / CONFLUENT_REST_ENDPOINT / CONFLUENT_CLUSTER_ID**
 
-https://confluent.cloud にログイン
-左メニューの Environments → 対象の Environment を選択
-![alt text](<step1_images/スクリーンショット 2026-08-10 23.17.24.png>)
+    https://confluent.cloud にログイン
+    左メニューの Environments → 対象の Environment を選択
+    ![alt text](<step1_images/スクリーンショット 2026-08-10 23.17.24.png>)
 
-対象の Cluster をクリック
-![alt text](<step1_images/スクリーンショット 2026-08-10 23.34.52.png>)
+    対象の Cluster をクリック
+    ![alt text](<step1_images/スクリーンショット 2026-08-10 23.34.52.png>)
 
-変数を.envファイルにコピペします。
-![alt text](<step1_images/スクリーンショット 2026-08-10 23.23.36-1.png>)
+    変数を.envファイルにコピペします。
+    ![alt text](<step1_images/スクリーンショット 2026-08-10 23.23.36-1.png>)
 
-**CONFLUENT_API_KEY=YOUR_KAFKA_API_KEY / CONFLUENT_API_SECRET=YOUR_KAFKA_API_SECRET**<br>
+2. **CONFLUENT_API_KEY / CONFLUENT_API_SECRET**<br>
 
-"APY Keys"タブをクリックし、"Create Key"をクリック
-![alt text](<step1_images/スクリーンショット 2026-08-10 23.28.32-2.png>)
+    "APY Keys"タブをクリックし、"Create Key"をクリック
+    ![alt text](<step1_images/スクリーンショット 2026-08-10 23.28.32-2.png>)
 
-"My account"を選択
-![alt text](<step1_images/スクリーンショット 2026-08-10 23.28.38.png>)
+    "My account"を選択
+    ![alt text](<step1_images/スクリーンショット 2026-08-10 23.28.38.png>)
 
-変数を.envファイルにコピペします。
-![alt text](<step1_images/スクリーンショット 2026-08-10 23.29.05.png>)
+    変数を.envファイルにコピペします。
+    ![alt text](<step1_images/スクリーンショット 2026-08-10 23.29.05.png>)
+
+3. **CONFLUENT_CLOUD_API_KEY / CONFLUENT_CLOUD_API_SECRET**<br>
+
+    前述のCONFLUENT_API_KEYと名前が似ていてややこしいのですが、それとは別のキーとシークレットが必要になります。<br>
+    Confluent Cloud Console 右上のメニュー(Administration) > API keys > <br>
+    適当なAPI Keyの名前を入力 > Select Accout: **My account** > Select key scope: **Global** > Create API Keyから取得可能です<br>
+    ![alt text](<step2_images/スクリーンショット 2026-08-11 1.12.26.png>)
+    ![alt text](<step2_images/スクリーンショット 2026-08-11 1.12.56.png>)
 ---
 
 ## Bob にトピック作成を実行してもらう
