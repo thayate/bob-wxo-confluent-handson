@@ -1025,22 +1025,30 @@
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>CONFLUENT_API_KEY=FTxxxxxxx
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>CONFLUENT_API_SECRET=cfltxxxxxxxxxxxxx
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a># --- トピック設定 ---
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a># トピック名（デフォルト: inventory.transactions）
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>TOPIC_NAME=inventory.transactions
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a># パーティション数（デフォルト: 6）
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>TOPIC_PARTITIONS=1
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a># メッセージ保持期間（ミリ秒）
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a># 例: 604800000 = 7日間 / 86400000 = 1日間 / -1 = 無期限
-<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>TOPIC_RETENTION_MS=604800000
-<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a># レプリケーション係数（Confluent Cloud は通常 3）
-<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>TOPIC_REPLICATION_FACTOR=3
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a># --- Cloud スコープの API Key / Secret（ksqlDB クラスター作成に必要）---
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a># 取得手順: Confluent Cloud Console 右上のメニュー(Administration) &gt; API keys
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>#           &gt; Add API key &gt; My account &gt; Resource scope: Global &gt; Next
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>CONFLUENT_CLOUD_API_KEY=EYC5xxxxxxxx
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>CONFLUENT_CLOUD_API_SECRET=cfltxxxxxxxxxxxxx
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a># --- トピック設定 ---
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a># トピック名（デフォルト: inventory.transactions）
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>TOPIC_NAME=inventory.transactions
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a># パーティション数（デフォルト: 6）
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>TOPIC_PARTITIONS=1
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a># メッセージ保持期間（ミリ秒）
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a># 例: 604800000 = 7日間 / 86400000 = 1日間 / -1 = 無期限
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>TOPIC_RETENTION_MS=604800000
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a># レプリケーション係数（Confluent Cloud は通常 3）
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>TOPIC_REPLICATION_FACTOR=3
 </code></pre></div>
+<p>実際の認証情報は後ほど埋めていきます。</p>
 <h2 id="bob_1">Bob にトピック作成のためのスクリプト作成を指示する<a class="headerlink" href="#bob_1" title="Permanent link">&para;</a></h2>
-<p>Bob に以下のように指示してください：</p>
+<p>以降の手順ではBobのモードは<code>Agent</code>モードで実施します。<br>
+Bob に以下のように指示してください：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Confluent Cloud上に「inventory.transactions」という名前の
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>トピックを作成するPythonコードを作成してください。
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Confluentの詳細情報と認証情報は.env.exampleにある項目を使用します。
@@ -1048,6 +1056,8 @@
 <p>Bob が Python スクリプトを生成します。</p>
 <h2 id="env">.env ファイルへの認証情報入力<a class="headerlink" href="#env" title="Permanent link">&para;</a></h2>
 <h3 id="_4">必要な環境変数と取得場所<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
 <p><strong>CONFLUENT_BOOTSTRAP_SERVERS / CONFLUENT_REST_ENDPOINT / CONFLUENT_CLUSTER_ID</strong></p>
 <p>https://confluent.cloud にログイン
 左メニューの Environments → 対象の Environment を選択
@@ -1056,14 +1066,26 @@
 <img alt="alt text" src="../step1_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-10%2023.34.52.png" /></p>
 <p>変数を.envファイルにコピペします。
 <img alt="alt text" src="../step1_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-10%2023.23.36-1.png" /></p>
-<p><strong>CONFLUENT_API_KEY=YOUR_KAFKA_API_KEY / CONFLUENT_API_SECRET=YOUR_KAFKA_API_SECRET</strong><br></p>
+</li>
+<li>
+<p><strong>CONFLUENT_API_KEY / CONFLUENT_API_SECRET</strong><br></p>
 <p>"APY Keys"タブをクリックし、"Create Key"をクリック
 <img alt="alt text" src="../step1_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-10%2023.28.32-2.png" /></p>
 <p>"My account"を選択
 <img alt="alt text" src="../step1_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-10%2023.28.38.png" /></p>
 <p>変数を.envファイルにコピペします。
 <img alt="alt text" src="../step1_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-10%2023.29.05.png" /></p>
+</li>
+<li>
+<p><strong>CONFLUENT_CLOUD_API_KEY / CONFLUENT_CLOUD_API_SECRET</strong><br></p>
+<p>前述のCONFLUENT_API_KEYと名前が似ていてややこしいのですが、それとは別のキーとシークレットが必要になります。<br>
+Confluent Cloud Console 右上のメニュー(Administration) &gt; API keys &gt; <br>
+適当なAPI Keyの名前を入力 &gt; Select Accout: <strong>My account</strong> &gt; Select key scope: <strong>Global</strong> &gt; Create API Keyから取得可能です<br>
+<img alt="alt text" src="../step2_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%201.12.26.png" />
+<img alt="alt text" src="../step2_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%201.12.56.png" /></p>
 <hr />
+</li>
+</ol>
 <h2 id="bob_2">Bob にトピック作成を実行してもらう<a class="headerlink" href="#bob_2" title="Permanent link">&para;</a></h2>
 <p>環境変数を入力後、Bob に以下のように指示してトピックを作成します：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>.env ファイルに私の認証情報を追加したので、Confluent Kafka 上にトピックを作成してください。

@@ -831,7 +831,8 @@
 <p>そのために <strong>ksqlDB クラスター</strong>を作成します。ksqlDB はストリーム処理エンジンで、バックグラウンドで継続的に稼働し、SQL ライクなコマンドを使って Kafka トピックのデータを読み込み、計算し、結果を別のトピックに書き出します。</p>
 <hr />
 <h2 id="bob">Bob への指示例<a class="headerlink" href="#bob" title="Permanent link">&para;</a></h2>
-<p>Bob に以下のように指示してください：</p>
+<p>以降のBobへの指示は基本的にタスクを切り替えないで（ステップ1のチャット画面のまま）実行してください。<br>
+Bob に以下のように指示してください：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>inventory.transactions トピックには、以下のフィールドが含まれます。
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>「sku、branch、quantity、transaction_type」
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>トランザクションタイプは、追加在庫による正の数量の場合は Addition、
@@ -848,11 +849,6 @@
 <p><code>.env</code>にログイン情報の追記をBobに求められることがあります。<br>
 ただしGoogleアカウントなどでSSOログインしている場合はパスワードがわからないため、<br>
 その場合はConfluent CLIを使ったログイン方法の手順をBobに聞いてください。</p>
-<p>また、<code>CONFLUENT_CLOUD_API_KEY</code>などの追加の認証情報を求められることがあります。<br>
-認証情報の取得方法はBobに聞けば答えてくれます。<br>
-（Confluent Cloud UI右上のメニューから取得可能）<br>
-<img alt="alt text" src="../step2_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%201.12.26.png" />
-<img alt="alt text" src="../step2_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202026-08-11%201.12.56.png" /></p>
 <hr />
 <h2 id="_3">確認<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>ksqlDBクラスターやテーブルが正常作成されたかどうか、Confluent Cloud UTで <code>Environments</code> &gt; <code>default</code> &gt; <code>cluster_0</code> &gt; <code>ksqlDB</code> より確認ができます。
