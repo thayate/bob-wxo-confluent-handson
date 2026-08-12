@@ -99,6 +99,7 @@ Bob が Python スクリプトを生成します。
 
     変数を.envファイルにコピペします。
     ![alt text](<step1_images/スクリーンショット 2026-08-10 23.23.36-1.png>)
+<br><br>
 
 2. **CONFLUENT_API_KEY / CONFLUENT_API_SECRET**<br>
 
@@ -110,6 +111,7 @@ Bob が Python スクリプトを生成します。
 
     変数を.envファイルにコピペします。
     ![alt text](<step1_images/スクリーンショット 2026-08-10 23.29.05.png>)
+<br><br>
 
 3. **CONFLUENT_CLOUD_API_KEY / CONFLUENT_CLOUD_API_SECRET**<br>
 
@@ -126,9 +128,8 @@ Bob が Python スクリプトを生成します。
 ```
 .env ファイルに私の認証情報を追加したので、Confluent Kafka 上にトピックを作成してください。
 ```
-## 確認
 
-Confluent Cloud上で以下のようにトピックが作成されていることが確認できます。
+完了するとConfluent Cloud上で以下のようにトピックが作成されていることが確認できます。
 ![alt text](<step1_images/スクリーンショット 2026-08-11 0.07.43.png>)
 ---
 
