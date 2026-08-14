@@ -28,6 +28,14 @@ Apache Kafka へのアクセス権を持つ **Confluent Cloud** アカウント�
 
 アカウントをお持ちでない場合は、[Confluent Cloud 登録ページ](https://confluent.cloud/signup)から無料アカウントを作成してください。
 
+クレジットカードの登録画面がでますが、**登録はせず"Enter Promo Code"をクリックしてください**。
+![alt text](<prerequisites_images/スクリーンショット 2026-08-10 12.48.20-1.png>)
+
+Promo Codeに**CONFLUENTDEV1**と入力してください。"Save"をクリックして、環境にアクセスできれば成功です。<br>
+もしエラーがでたら**KAFKA101**というコードも試してみてください。<br>
+成功すると$425の無償クレジットが付与されます。<br>
+![alt text](<prerequisites_images/スクリーンショット 2026-08-10 12.48.48.png>)
+
 ### 5. Kafka の基礎知識
 
 以下の Kafka 基本概念を理解していることを前提としています：
