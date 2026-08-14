@@ -4,7 +4,7 @@
 
 ## このハンズオンについて
 
-このハンズオンでは、**IBM Bob**、**Confluent CloudのManaged Apache Kafkaサービス**と**watsonx Orchestrate**を使って、イベント駆動型エージェントシステムを構築する方法を解説します。
+このハンズオンでは、**IBM Bob**、**Confluent CloudのManaged Apache Kafkaサービス**と**watsonx Orchestrate**を使って、イベント駆動型エージェントを構築する方法を解説します。
 
 エージェントはKafkaトピックのイベントをリアルタイムで消費・分析し、ビジネスドキュメント（製品カタログ等）と照合することで、鮮度の高い業務イベントを解釈・説明します。<br>
 このパターンは以下のようなユースケースに特に有効です：
